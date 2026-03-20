@@ -1,10 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ChangeEvent } from "react";
 import { useTask } from "../context/TaskSlice";
 import { useAuth } from "../context/UserSlice";
 import Dropdown from "./Dropdown";
 
+type TaskFormData = {
+  title?: string;
+  description?: string;
+  project?: string;
+  priority?: string;
+  assignee?: string;
+  dueDate?: string;
+};
+
 const Taskmodal = ({ isOpen, onClose }: any) => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState<TaskFormData>({});
   const authContext = useAuth();
   const { setMessage = () => {}, message = "" } = authContext || {};
   const { addProject } = useTask();
@@ -22,7 +31,7 @@ const Taskmodal = ({ isOpen, onClose }: any) => {
     }
   };
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     console.log(name, value);
     setData({ ...data, [name]: value });
