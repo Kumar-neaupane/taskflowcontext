@@ -1,0 +1,10 @@
+import Dashboard from './Dashboard.tsx';
+import Login from './Login';
+import Register from './Regsiter.tsx';
+import Analytics from './Analytics.tsx';
+import KanbanBoard from './KanbanBoard.tsx';
+import Projects from './Projects.tsx';
+import Tasks from './Tasks.tsx';
+import TaskDetails from './TaskDetails.tsx';
+import Setting from './Setting.tsx';
+export { Login, Register, Dashboard,Analytics, KanbanBoard, Projects,Tasks,TaskDetails,Setting };
